@@ -1,0 +1,42 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --devtool eval --port 7070 --progress --colors --compress --hot --inline --content-base ./dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@vue/component-compiler-utils": "^3.1.2",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "vue-loader": "^15.9.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "vue": "^2.6.11",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "comment": "webpack-dev-server: 在localhost:7070创建一个web服务器 --devtool eval：为你的代码创建原地址。当有任何报错的时候可以精确的定位到文件和行号 --progress: 显示编译的输出内容进度 --hot: 热替换，实时更改 --colors: 显示编译的输出内容颜色 --inline: webpack提供2种自动刷新模式 --content-base ./dist:指向设置的输出目录"
+}
