@@ -14,7 +14,6 @@ export default {
     }
   },
   created() {
-    console.log('fsdkf'.slice(0))
   },
   components: {
     Parent

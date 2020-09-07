@@ -33,9 +33,11 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "vue": "^2.6.11",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "vue": "^2.6.11",
     "webpack-cli": "^3.3.11"
   },
   "comment": "webpack-dev-server: 在localhost:7070创建一个web服务器 --devtool eval：为你的代码创建原地址。当有任何报错的时候可以精确的定位到文件和行号 --progress: 显示编译的输出内容进度 --hot: 热替换，实时更改 --colors: 显示编译的输出内容颜色 --inline: webpack提供2种自动刷新模式 --content-base ./dist:指向设置的输出目录"

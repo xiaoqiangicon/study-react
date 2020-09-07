@@ -1,8 +1,8 @@
 let it = makeIterator(['a', 'b']);
 
-console.log(it.next());
-console.log(it.next());
-console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
 
 function makeIterator(array) {
   let nextIndex = 0;
@@ -40,7 +40,7 @@ function range(start, stop) {
 }
 
 for (let value of range(0, 3)) {
-  console.log(value);
+  // console.log(value);
 }
 
 function sleep(interval) {
@@ -51,7 +51,7 @@ function sleep(interval) {
 
 async function fiveInAsync() {
   for(let i = 1; i <= 5; i++) {
-    console.log(i);
+    // console.log(i);
     await sleep(1000);
   }
 }
