@@ -8,6 +8,8 @@ import Index from './react/index.jsx';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { addToCart, updateCart, deleteFromCart } from './redux/action';
+import about from '../about.md';
+console.log(about);
 
 let vm = new Vue({
   el: '#app',

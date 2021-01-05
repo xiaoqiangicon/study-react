@@ -2,9 +2,10 @@ const Path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const RemoveCommentsPlugin = require('./remove-comments-plugin');
 
-module.exports = {
-  mode: 'development',
+const config = {
+  mode: 'none',
   devtool: 'cheap-module-eval-source-map',
   entry: {
     main: './src/main.js',
@@ -65,6 +66,13 @@ module.exports = {
           cacheDirectory: true,
         }
       }
+    }, {
+      test: /\.md$/,
+      exclude: /node_modules/,
+      use: [
+        'html-loader',
+        './markdown-loader'
+      ],
     }]
   },
   resolve: {
@@ -73,15 +81,32 @@ module.exports = {
     }
   },
   plugins: [
+    // 用于生成index.html
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
+    // 用于生成about.html
+    new HtmlWebpackPlugin({
+      filename: 'about.html'
+    }),
     new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
+    new RemoveCommentsPlugin(),
     // new webpack.HotModuleReplacementPlugin(),  // package.json和webpack只能存在一个，不然出现溢出。
   ],
+  // 其他配置项
+  optimization: {
+    // 模块只导出被使用的成员
+    usedExports: true,
+    // 尽可能合并每一个模块到一个函数中
+    concatenateModules: true,
+    // 压缩输出结果
+    minimize: true,
+  },
   output: {
     filename: 'bundle.js',
     path: Path.resolve(__dirname, 'dist'),  // 必须使用绝对路径
   }
 }
+
+module.exports = config;
