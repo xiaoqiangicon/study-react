@@ -1,3 +1,12 @@
+// new的模拟实现
+function newFunc() {
+  var obj = new Object(),
+  Constructor = [].shift.call(arguments);
+  obj.__proto__ = Constructor.prototype;
+  var ret = Constructor.apply(obj, arguments);
+  return typeof ret === 'object' ? ret : obj;
+}
+
 
 // 深拷贝1
 let obj = {}
@@ -126,19 +135,33 @@ function uncurring2(fn) {
   }
 }
 
-// bind方法模拟
+// bind方法模拟，未实现绑定函数也能使用new操作符创建对象，把原函数当作构造器
 Function.prototype.bind = function(context) {
   var self = this;
   var args = [].slice.call(arguments, 1);
 
   return function () {
-    return self.apply(context, args);
+    // 这个时候的arguments是指bind返回的函数传入的参数
+    // 因为有时候不会在bind时一次性传入所有参数，在调用时继续传入
+    var bindArgs = Array.prototype.slice.call(arguments);
+    return self.apply(context, args.concat(bindArgs));
   }
+}
+// 实现可通过new创建对象
+Function.prototype.bind2 = function(context) {
+  var self = this;
+  var args = Array.prototype.slice.call(arguments, 1);
+  var fbound = function() {
+    var bindArgs = Array.prototype.slice.call(arguments);
+    self.apply(this instanceof self ? this : context, args.concat(bindArgs));
+  }
+  // 修改返回函数的prototype,为绑定函数的prototype,实例就可以继承函数的原型中的值
+  fbound.prototype = this.prototype;
+  return fbound;
 }
 
 // 数组展平
 function flatten(arr) {
-  typeof arr === 'object' ? flatten(arr) : [...arr]
   return arr.reduce(function(prev, next) {
     return prev.concat(Array.isArray(next) ? flatten(next) : next);
   }, [])

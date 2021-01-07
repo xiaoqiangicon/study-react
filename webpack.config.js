@@ -5,8 +5,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const RemoveCommentsPlugin = require('./remove-comments-plugin');
 
 const config = {
-  mode: 'none',
-  devtool: 'cheap-module-eval-source-map',
+  mode: 'development',
+  // devtool: 'cheap-module-eval-source-map',
   entry: {
     main: './src/main.js',
   },
@@ -85,13 +85,10 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    // 用于生成about.html
-    new HtmlWebpackPlugin({
-      filename: 'about.html'
-    }),
     new VueLoaderPlugin(),
-    new CleanWebpackPlugin(),
-    new RemoveCommentsPlugin(),
+    // 开发太慢，上线再用
+    // new CleanWebpackPlugin(),
+    // new RemoveCommentsPlugin(),
     // new webpack.HotModuleReplacementPlugin(),  // package.json和webpack只能存在一个，不然出现溢出。
   ],
   // 其他配置项
@@ -100,8 +97,8 @@ const config = {
     usedExports: true,
     // 尽可能合并每一个模块到一个函数中
     concatenateModules: true,
-    // 压缩输出结果
-    minimize: true,
+    // 压缩输出结果,开发太慢，上线再用
+    // minimize: true,
   },
   output: {
     filename: 'bundle.js',

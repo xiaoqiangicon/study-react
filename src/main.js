@@ -8,6 +8,9 @@ import Index from './react/index.jsx';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { addToCart, updateCart, deleteFromCart } from './redux/action';
+import Alert from './vue/alert/alert.js';
+
+// 测试webpack的解析readme
 import about from '../about.md';
 console.log(about);
 
@@ -15,7 +18,6 @@ let vm = new Vue({
   el: '#app',
   render: h => h(App),
 });
-
 
 console.log('initital state: ', store.getState());
 let unsubscribe = store.subscribe(() => 
