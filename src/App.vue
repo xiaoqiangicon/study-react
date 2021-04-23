@@ -1,5 +1,6 @@
 <template>
   <div class="head">
+    <p>vue组件</p>
     {{msg | Upper}}
     <Parent />
   </div>

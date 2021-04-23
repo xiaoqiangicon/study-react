@@ -1,10 +1,13 @@
 import React from 'react';
-import Example from './hook.jsx';
+import Hook from './hook.jsx';
+import Practice from './practice.jsx';
 
 function Index () {
   return (
     <div>
-      <Example />
+      <p>react组件:</p>
+      <Hook />
+      <Practice unlikedText={'unlike'} likedText={'like'}/>
     </div>
   )
 }

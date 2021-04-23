@@ -8,7 +8,9 @@ import Index from './react/index.jsx';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { addToCart, updateCart, deleteFromCart } from './redux/action';
-import Alert from './vue/alert/alert.js';
+
+import './style/index.css';
+import 'antd/dist/antd.css';
 
 // 测试webpack的解析readme
 import about from '../about.md';

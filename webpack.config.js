@@ -15,7 +15,6 @@ const config = {
     open: true,
     port: 8080,
     hot: true,
-    hotOnly: true,  // ???
   },
   module: {
     rules: [{
