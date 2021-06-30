@@ -8,8 +8,10 @@ import Index from './react/index.jsx';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { addToCart, updateCart, deleteFromCart } from './redux/action';
+import vueStore from './store/store';
+import vueRouter from './router/router';
 
-import './style/index.css';
+import './style/index.scss';
 import 'antd/dist/antd.css';
 
 // 测试webpack的解析readme
@@ -18,6 +20,8 @@ console.log(about);
 
 let vm = new Vue({
   el: '#app',
+  store: vueStore,
+  router: vueRouter,
   render: h => h(App),
 });
 

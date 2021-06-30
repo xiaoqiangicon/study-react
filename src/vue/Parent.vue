@@ -1,6 +1,12 @@
 <template>
   <div>
-    <Child @test="handleEvent"/>
+    <p>父组件</p>
+    <Child @test="handleEvent">
+      <template v-slot:default="slotProps">
+        <h1>{{slotProps.user.name}}</h1>
+      </template>
+      <p slot="footer">具名插槽</p>
+    </Child>
   </div>
 </template>
 

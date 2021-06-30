@@ -166,3 +166,31 @@ function flatten(arr) {
     return prev.concat(Array.isArray(next) ? flatten(next) : next);
   }, [])
 }
+
+// 手写promise 
+function promi(executor) {
+  let _this = this;
+  _this.$$status = 'pending';
+  _this.failCallBack = undefined;
+  _this.successCallback = undefined;
+  _this.error = undefined;
+  executor(resolve.bind(this), reject.bind(this));
+
+  function resolve() {
+    if (_this.$$status === 'pending') {
+      _this.$$status = 'full';
+      _this.successCallback(params);
+    }
+  }
+  function reject() {
+    if (_this.$$status === 'pending') {
+      _this.$$status = 'fail';
+      _this.failCallBack(params);
+    }
+  }
+}
+
+promi.prototype.then = function(full, fail) {
+  this.successCallback = full;
+  this.failCallBack = fail;
+}
