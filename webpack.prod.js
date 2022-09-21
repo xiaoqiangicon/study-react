@@ -116,7 +116,7 @@ const config = {
     // minimize: true,
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'bundle.[contentHash:8].js',
     path: Path.resolve(__dirname, 'dist'),  // 必须使用绝对路径
   }
 }

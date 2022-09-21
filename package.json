@@ -6,12 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --devtool eval --port 7073 --colors --hot --inline --content-base ./dist",
-    "build": "webpack"
+    "build": "webpack --config webpack.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
@@ -29,6 +29,8 @@
     "marked": "^1.2.7",
     "mint-ui": "^2.2.13",
     "node-sass": "^4.14.1",
+    "postcss": "^8.4.1",
+    "postcss-loader": "^6.2.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "ts-loader": "^9.2.3",
@@ -54,5 +56,5 @@
     "vuex": "^3.6.2",
     "webpack-cli": "^3.3.11"
   },
-  "comment": "webpack-dev-server: 在localhost:7070创建一个web服务器 --devtool eval：为你的代码创建原地址。当有任何报错的时候可以精确的定位到文件和行号 --progress: 显示编译的输出内容进度 --hot: 热替换，实时更改 --colors: 显示编译的输出内容颜色 --inline: webpack提供2种自动刷新模式 --content-base ./dist:指向设置的输出目录"
+  "comment": "webpack-dev-server: 在localhost:7070创建一个web服务器 --devtool eval：为你的代码创建原地址。当有任何报错的时候可以精确的定位到文件和行号 --progress: 显示编译的输出内容进度 --hot: 热替换，实时更改 --colors: 显示编译的输出内容颜色 --inline: webpack提供2种自动刷新模式 --content-base ./dist:指向设置的输出目录；webpack是构建工具；"
 }

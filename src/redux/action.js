@@ -29,6 +29,4 @@ function deleteFromCart(product) {
   }
 }
 
-export const fetchTodos = () => dispatch => ()
-
 export { addToCart, ADD_TO_CART, DELETE_FROM_CART, UPDATE_CART,  updateCart, deleteFromCart }
